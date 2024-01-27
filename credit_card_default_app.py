@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import pickle
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
+# from sklearn.preprocessing import StandardScaler
+# from sklearn.decomposition import PCA
 with open('Scaling.pkl', 'rb') as file:
     loaded_scaler = pickle.load(file)
 
