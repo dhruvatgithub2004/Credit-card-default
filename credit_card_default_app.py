@@ -12,13 +12,15 @@ pca_path = os.path.join(script_directory, 'PCA_fully_applied.pkl')
 model_path = os.path.join(script_directory, 'credit_card_default.pkl')
 encoding_path = os.path.join(script_directory, 'Encoding.pkl')
 
-# Debugging: Print paths and current working directory
-print("Current Working Directory:", os.getcwd())
-print("Script Directory:", script_directory)
-print("Scaling Path:", scaling_path)
-print("PCA Path:", pca_path)
-print("Model Path:", model_path)
-print("Encoding Path:", encoding_path)
+# Log paths to a file
+log_file_path = os.path.join(script_directory, 'log.txt')
+with open(log_file_path, 'w') as log_file:
+    log_file.write(f"Current Working Directory: {os.getcwd()}\n")
+    log_file.write(f"Script Directory: {script_directory}\n")
+    log_file.write(f"Scaling Path: {scaling_path}\n")
+    log_file.write(f"PCA Path: {pca_path}\n")
+    log_file.write(f"Model Path: {model_path}\n")
+    log_file.write(f"Encoding Path: {encoding_path}\n")
 
 # Load the pickled files
 with open(scaling_path, 'rb') as file:
@@ -65,5 +67,3 @@ if uploaded_file is not None:
 
     # Allow the user to download the predictions as a CSV file
     st.download_button('Download Predictions', data.to_csv(index=False), file_name='predictions.csv', key='download_button')
-
-
