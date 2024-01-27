@@ -3,13 +3,18 @@ import pickle
 import pandas as pd
 import streamlit as st
 
-# Get the relative paths to the pickled files
-scaling_path = 'Scaling.pkl'
-pca_path = 'PCA_fully_applied.pkl'
-model_path = 'credit_card_default.pkl'
-encoding_path = 'Encoding.pkl'
+# Get the absolute path to the directory containing the Streamlit app script
+script_directory = os.path.dirname(os.path.abspath(__file__))
 
-# Debugging: Print paths
+# Specify the full paths to the pickled files
+scaling_path = os.path.join(script_directory, 'Scaling.pkl')
+pca_path = os.path.join(script_directory, 'PCA_fully_applied.pkl')
+model_path = os.path.join(script_directory, 'credit_card_default.pkl')
+encoding_path = os.path.join(script_directory, 'Encoding.pkl')
+
+# Debugging: Print paths and current working directory
+print("Current Working Directory:", os.getcwd())
+print("Script Directory:", script_directory)
 print("Scaling Path:", scaling_path)
 print("PCA Path:", pca_path)
 print("Model Path:", model_path)
@@ -60,4 +65,5 @@ if uploaded_file is not None:
 
     # Allow the user to download the predictions as a CSV file
     st.download_button('Download Predictions', data.to_csv(index=False), file_name='predictions.csv', key='download_button')
+
 
