@@ -3,24 +3,20 @@ import pickle
 import pandas as pd
 import streamlit as st
 
-# Get the absolute path to the directory containing the Streamlit app script
-script_directory = os.path.dirname(os.path.abspath(__file__))
+# Get the base directory of the project
+base_path = os.getcwd()
 
-# Specify the full paths to the pickled files
-scaling_path = os.path.join(script_directory, 'Scaling.pkl')
-pca_path = os.path.join(script_directory, 'PCA_fully_applied.pkl')
-model_path = os.path.join(script_directory, 'credit_card_default.pkl')
-encoding_path = os.path.join(script_directory, 'Encoding.pkl')
+# Get the relative paths to the pickled files
+scaling_path = os.path.join(base_path, 'Scaling.pkl')
+pca_path = os.path.join(base_path, 'PCA_fully_applied.pkl')
+model_path = os.path.join(base_path, 'credit_card_default.pkl')
+encoding_path = os.path.join(base_path, 'Encoding.pkl')
 
-# Log paths to a file
-log_file_path = os.path.join(script_directory, 'log.txt')
-with open(log_file_path, 'w') as log_file:
-    log_file.write(f"Current Working Directory: {os.getcwd()}\n")
-    log_file.write(f"Script Directory: {script_directory}\n")
-    log_file.write(f"Scaling Path: {scaling_path}\n")
-    log_file.write(f"PCA Path: {pca_path}\n")
-    log_file.write(f"Model Path: {model_path}\n")
-    log_file.write(f"Encoding Path: {encoding_path}\n")
+# Debugging: Print paths
+print("Scaling Path:", scaling_path)
+print("PCA Path:", pca_path)
+print("Model Path:", model_path)
+print("Encoding Path:", encoding_path)
 
 # Load the pickled files
 with open(scaling_path, 'rb') as file:
