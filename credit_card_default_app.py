@@ -3,8 +3,11 @@ import pickle
 import pandas as pd
 import streamlit as st
 
-# Get the base directory of the project
-base_path = os.getcwd()
+# Get the absolute path of the current script
+script_path = os.path.abspath(__file__)
+
+# Derive the base directory of the project
+base_path = os.path.dirname(script_path)
 
 # Get the relative paths to the pickled files
 scaling_path = os.path.join(base_path, 'Scaling.pkl')
