@@ -3,11 +3,17 @@ import pickle
 import pandas as pd
 import streamlit as st
 
-# Get the absolute paths to the pickled files
-scaling_path = os.path.abspath('Scaling.pkl')
-pca_path = os.path.abspath('PCA_fully_applied.pkl')
-model_path = os.path.abspath('credit_card_default.pkl')
-encoding_path = os.path.abspath('Encoding.pkl')
+# Get the relative paths to the pickled files
+scaling_path = 'Scaling.pkl'
+pca_path = 'PCA_fully_applied.pkl'
+model_path = 'credit_card_default.pkl'
+encoding_path = 'Encoding.pkl'
+
+# Debugging: Print paths
+print("Scaling Path:", scaling_path)
+print("PCA Path:", pca_path)
+print("Model Path:", model_path)
+print("Encoding Path:", encoding_path)
 
 # Load the pickled files
 with open(scaling_path, 'rb') as file:
