@@ -1,5 +1,6 @@
 import pickle
 import streamlit as st
+import pandas as pd
 with open('Scaling.pkl', 'rb') as file:
     loaded_scaler = pickle.load(file)
 
