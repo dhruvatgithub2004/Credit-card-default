@@ -1,6 +1,6 @@
 # Project Title
 
-Predicting Customer Default in Credit Card Transactions
+Credit Risk Estimation and Default Prediction
 
 ## Project Overview
 
